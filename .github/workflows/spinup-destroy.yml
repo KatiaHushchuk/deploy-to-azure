@@ -6,10 +6,11 @@ on:
 
 env:
   IMAGE_REGISTRY_URL: ghcr.io
-  AZURE_RESOURCE_GROUP: cd-with-actions
+  AZURE_RESOURCE_GROUP: cd-with-actions-we
   AZURE_APP_PLAN: actions-ttt-deployment
   AZURE_LOCATION: '"West Europe"'
   AZURE_WEBAPP_NAME: KatiaHushchuk-ttt-app
+  
 
 jobs:
   setup-up-azure-resources:
@@ -61,3 +62,4 @@ jobs:
         if: success()
         run: |
           az group delete --name ${{env.AZURE_RESOURCE_GROUP}} --subscription ${{secrets.AZURE_SUBSCRIPTION_ID}} --yes
+          
